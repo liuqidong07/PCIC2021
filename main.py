@@ -298,8 +298,8 @@ if __name__ == '__main__':
 
     # 读取参数
     parser = argparse.ArgumentParser(description="Demo of argparse")
-    parser.add_argument('--model', default='MF_IPS')
-    parser.add_argument('--batch_size', type=int, default=128)
+    parser.add_argument('--model', default='MF_Naive')
+    parser.add_argument('--batch_size', type=int, default=16)
     parser.add_argument('--epoch', type=int, default=20)
     parser.add_argument('--lr', type=float, default=0.001)
     parser.add_argument('--metric',
@@ -312,6 +312,7 @@ if __name__ == '__main__':
     opt.max_epoch = args.epoch
     opt.lr = args.lr
     opt.metric = args.metric
+    opt.embedding_size = 32
 
     print('\n'.join(['%s:%s' % item for item in opt.__dict__.items()]))
 

@@ -1,0 +1,56 @@
+  0%|          | 0/100 [00:00<?, ?it/s]  1%|          | 1/100 [00:04<07:01,  4.26s/it]  2%|▏         | 2/100 [00:08<06:44,  4.13s/it]  3%|▎         | 3/100 [00:12<06:36,  4.09s/it]  4%|▍         | 4/100 [00:16<06:42,  4.19s/it]  5%|▌         | 5/100 [00:21<06:47,  4.29s/it]  6%|▌         | 6/100 [00:25<06:36,  4.22s/it]  6%|▌         | 6/100 [00:29<07:48,  4.98s/it]
+seed_num: 2021
+**********************************
+Hierarchical Poisson Factorization
+**********************************
+
+Number of users: 998
+Number of items: 1679
+Latent factors to use: 10
+
+Initializing parameters...
+Allocating Phi matrix...
+Initializing optimization procedure...
+Iteration 10 | train llk: -147167 | train rmse: 0.7883
+Iteration 20 | train llk: -143997 | train rmse: 0.7817
+Iteration 30 | train llk: -142632 | train rmse: 0.7785
+Iteration 40 | train llk: -141851 | train rmse: 0.7758
+Iteration 50 | train llk: -141403 | train rmse: 0.7747
+Iteration 60 | train llk: -141101 | train rmse: 0.7740
+Iteration 70 | train llk: -140882 | train rmse: 0.7735
+Iteration 80 | train llk: -140737 | train rmse: 0.7731
+Iteration 90 | train llk: -140620 | train rmse: 0.7727
+
+
+Optimization finished
+Final log-likelihood: -140620
+Final RMSE: 0.7727
+Minutes taken (optimization part): 0.1
+
+train begin
+Epoch %d [%.1f s]: 0 4.2302186489105225
+Train Loss =  0.06915359199047089
+Val MAE = 0.3697, MSE = 0.2872, RMSE = 0.5359, AUC = 0.7402 [0.0 s]
+------------------------------------------
+train end
+Best Epoch 0:  MAE = 0.3697, MSE = 0.2872, AUC = 0.7402
+
+========================= best model =========================
+Traceback (most recent call last):
+  File "grid_search.py", line 46, in <module>
+    _, auc, best_iter = train(DG, opt)
+  File "/workspace/competition/PCIC2021/main.py", line 272, in train
+    mae, mse, rmse, auc = evaluate_model(best_model, train_dataloader, opt)
+  File "/workspace/competition/PCIC2021/utils.py", line 55, in evaluate_model
+    auc = AUC(true, preds)
+  File "/workspace/competition/PCIC2021/metrics.py", line 68, in AUC
+    return roc_auc_score(true, preds)
+  File "/opt/conda/envs/rec/lib/python3.7/site-packages/sklearn/utils/validation.py", line 63, in inner_f
+    return f(*args, **kwargs)
+  File "/opt/conda/envs/rec/lib/python3.7/site-packages/sklearn/metrics/_ranking.py", line 545, in roc_auc_score
+    sample_weight=sample_weight)
+  File "/opt/conda/envs/rec/lib/python3.7/site-packages/sklearn/metrics/_base.py", line 77, in _average_binary_score
+    return binary_metric(y_true, y_score, sample_weight=sample_weight)
+  File "/opt/conda/envs/rec/lib/python3.7/site-packages/sklearn/metrics/_ranking.py", line 327, in _binary_roc_auc_score
+    raise ValueError("Only one class present in y_true. ROC AUC score "
+ValueError: Only one class present in y_true. ROC AUC score is not defined in that case.

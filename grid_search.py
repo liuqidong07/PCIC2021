@@ -20,7 +20,7 @@ if __name__ == '__main__':
 
     ps_model = get_propensity_score()
 
-    opt.model = 'MF_IPS'
+    opt.model = 'MF_Naive'
 
     log_path = r'./log/' + opt.model + '/'
     if not os.path.exists(log_path):
